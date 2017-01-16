@@ -1,0 +1,18 @@
+//  Created by arbridev
+//  Copyright © 2017 arbridev. All rights reserved.
+//
+
+import UIKit
+
+extension UIView {
+    func addContainedView(containedView: UIView) {
+        containedView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(containedView)
+        
+        self.heightAnchor.constraintEqualToAnchor(containedView.heightAnchor).active = true
+        self.widthAnchor.constraintEqualToAnchor(containedView.widthAnchor).active = true
+        self.centerXAnchor.constraintEqualToAnchor(containedView.centerXAnchor).active = true
+        self.centerYAnchor.constraintEqualToAnchor(containedView.centerYAnchor).active = true
+    }
+}
