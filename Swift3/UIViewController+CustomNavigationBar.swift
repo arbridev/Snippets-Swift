@@ -23,6 +23,7 @@ import UIKit
 
 extension UIViewController {
 
+    //Adds a UIViewController at the top of self.view
     func addCustomNavigationBar(controller: UIViewController, barHeight: CGFloat) {
         
         controller.view.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +45,7 @@ extension UIViewController {
                     if constraint.secondAnchor == topLayoutGuide.bottomAnchor {
                         if let fi = constraint.firstItem as? UIView {
                             if fi.frame.minY == 0.0 {
+                                //Ignore the status bar
                                 continue
                             }
                         }
