@@ -37,7 +37,7 @@ extension UIScrollView {
     }
     
     //Appends a sub view at the end of other vertical sub views
-    func appendSubView(view: UIView, viewHeight: CGFloat) {
+    func appendSubView(view: UIView, viewHeight: CGFloat, animated: Bool) {
         view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
         
@@ -57,7 +57,19 @@ extension UIScrollView {
         view.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         view.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         view.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
+        
+        if animated {
+            let heightConstraint = view.heightAnchor.constraint(equalToConstant: 1.0)
+            heightConstraint.isActive = true
+            self.layoutIfNeeded()
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                heightConstraint.constant = viewHeight
+                self.layoutIfNeeded()
+            })
+        } else {
+            view.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
+        }
         
         self.removeConstraint(bottomConstraint!)
     }
