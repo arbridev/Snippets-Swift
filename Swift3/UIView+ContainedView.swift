@@ -1,5 +1,5 @@
-//  Created by arbridev
-//  Copyright © 2017 arbridev. All rights reserved.
+//  Created by Armando Brito
+//  Copyright © 2017 Armando Brito. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy 
 //  of this software and associated documentation files (the "Software"), 
